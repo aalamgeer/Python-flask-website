@@ -1,0 +1,40 @@
+{% extends 'header.html' %}
+{% block body %}
+<div class="container" style="width: 40%;">
+<div class="login-form">
+<div class="main-div">
+    <div class="panel">
+   <h2>Login here</h2>
+   <p>Please enter your email and password</p>
+    {% with messages = get_flashed_messages() %}
+        {% if  messages %}
+            {% for msg in messages %}
+                 <p style="color: #3e8f3e">{{ msg }}</p>
+            {% endfor %}
+
+        {% endif %}
+    {% endwith %}
+   </div>
+    <form id="Login" style="line-height: 3;" action="/login" method="post">
+
+        <div class="form-group">
+
+
+            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email Address" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password" required>
+
+        </div>
+        <div class="forgot">
+        <a href="/reset">Forgot password?</a>
+</div>
+        <button type="submit" name="submit" class="btn btn-primary">Login</button>
+
+    </form>
+    </div>
+</div></div>
+{% endblock %}

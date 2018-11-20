@@ -1,0 +1,148 @@
+{% extends "header.html" %}
+{% block body %}
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+          <!-- Title -->
+          <h1 class="mt-4"> {{ data[0][2] }}</h1>
+
+          <!-- Author -->
+          <p class="lead">
+            by
+            <a href="#">{{ data[0][3] }}</a>
+          </p>
+
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Posted on January 1, 2018 at 12:00 PM</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="{{ title['imageName'] }}" alt="" style="width: 100%">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">{{ data[0][3] }}</p>
+
+          <blockquote class="blockquote">
+            <p class="mb-0">I developed a ticketing tool for my company <a href="https://desk.proprofs.com" target="_blank">Click here to see</a> </p>
+            <footer class="blockquote-footer">Hepldesk
+              <cite title="Source Title">PHP, Mysql, Javascript, Css3 Etc.</cite>
+            </footer>
+          </blockquote>
+
+          <p>In order to streamline support requests and better serve you, we utilize a support ticket system. Every
+              support request is assigned a unique ticket number which you can use to track the progress and responses online.
+              For your reference we provide complete
+              archives and history of all your support requests. A valid email address is required to submit a ticket.</p>
+
+          <hr>
+          <h1>1. <a href="https://www.python.org/">Python</a></h1>
+          <hr>
+          <h1>2. <a href="https://www.javascript.com/">JavaScript</a></h1>
+          <hr>
+          <h1>3. <a href="https://www.java.com/">Java</a></h1>
+          <hr>
+          <h1>4. <a href="http://php.net/">PHP</a></h1>
+          <hr>
+          <h1>5. <a href="https://www.ruby-lang.org/en/">Ruby</a></h1>
+          <!-- Comments Form -->
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+              <form method="post" action="/comment">
+                <div class="form-group">
+                  <textarea name="comment" id="comment" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Single Comment -->
+            {% for comment in comments %}
+          <div class="media mb-4">
+            <img width="85px" height="85px" class="d-flex mr-3 rounded-circle" src="{{ title['userImage'] }}" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Anonymous, IP Address-({{ comment[3] }})</h5>
+              {{ comment[1] }}
+            </div>
+          </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Web Design</a>
+                    </li>
+                    <li>
+                      <a href="#">HTML</a>
+                    </li>
+                    <li>
+                      <a href="#">Freebies</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">JavaScript</a>
+                    </li>
+                    <li>
+                      <a href="#">CSS</a>
+                    </li>
+                    <li>
+                      <a href="#">Tutorials</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+   <!-- /.container -->
+  {% endblock %}
